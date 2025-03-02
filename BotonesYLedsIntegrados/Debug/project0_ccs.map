@@ -1,0 +1,208 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Sun Mar  2 13:43:12 2025
+
+OUTPUT FILE NAME:   <BotonesYLedsIntegrados.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 000007fd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  00000b52  000ff4ae  R  X
+  SRAM                  20000000   00040000  00000100  0003ff00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000b54   00000b54    r-x
+  00000000    00000000    00000200   00000200    r-- .intvecs
+  00000200    00000200    000006ea   000006ea    r-x .text
+  000008ec    000008ec    00000268   00000268    r-- .const
+20000000    20000000    00000100   00000000    rw-
+  20000000    20000000    00000100   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000200     
+                  00000000    00000200     startup_ccs.obj (.intvecs)
+
+.text      0    00000200    000006ea     
+                  00000200    00000200     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  00000400    0000016c                   : gpio.obj (.text:GPIOPadConfigSet)
+                  0000056c    00000068                   : interrupt.obj (.text:IntEnable)
+                  000005d4    00000058                   : gpio.obj (.text:GPIOIntTypeSet)
+                  0000062c    00000058     BotonesYLedsIntegrados.obj (.text:PortJIntHandler)
+                  00000684    00000050     BotonesYLedsIntegrados.obj (.text:habilitarBotones)
+                  000006d4    00000048     driverlib.lib : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  0000071c    00000048     BotonesYLedsIntegrados.obj (.text:habilitarLeds)
+                  00000764    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReady)
+                  0000079c    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000007d0    0000002c                   : gpio.obj (.text:GPIODirModeSet)
+                  000007fc    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000828    00000020     driverlib.lib : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  00000848    0000001c     BotonesYLedsIntegrados.obj (.text:main)
+                  00000864    0000001a     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  0000087e    00000016                   : gpio.obj (.text:GPIOPinTypeGPIOInput)
+                  00000894    00000010                   : interrupt.obj (.text:IntMasterEnable)
+                  000008a4    0000000e                   : gpio.obj (.text:GPIOIntStatus)
+                  000008b2    0000000c                   : cpu.obj (.text:CPUcpsie)
+                  000008be    0000000c                   : gpio.obj (.text:GPIOIntEnable)
+                  000008ca    00000006                   : gpio.obj (.text:GPIOIntClear)
+                  000008d0    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  000008d6    00000006     startup_ccs.obj (.text:ResetISR)
+                  000008dc    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000008e0    00000004                                   : exit.c.obj (.text:abort:abort)
+                  000008e4    00000002     startup_ccs.obj (.text:FaultISR)
+                  000008e6    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  000008e8    00000002     startup_ccs.obj (.text:NmiSR)
+
+.const     0    000008ec    00000268     
+                  000008ec    000001b0     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  00000a9c    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00000b08    00000030                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  00000b38    00000014                   : interrupt.obj (.const:g_pui32EnRegs)
+                  00000b4c    00000008                   : sysctl.obj (.const:g_pui32VCOFrequencies)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000100     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000000fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\
+       startup_ccs.obj              12     512       0      
+       BotonesYLedsIntegrados.obj   268    0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       280    512       0      
+                                                            
+    C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                   724    596       0      
+       gpio.obj                     582    0         0      
+       interrupt.obj                120    20        0      
+       cpu.obj                      12     0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       1438   616       0      
+                                                            
+    C:\ti\ccs1281\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       boot_cortex_m.c.obj          44     0         0      
+       exit.c.obj                   4      0         0      
+       pre_init.c.obj               4      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       52     0         0      
+                                                            
+       Stack:                       0      0         256    
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 1770   1128      256    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+000008e1  C$$EXIT                
+000008b3  CPUcpsie               
+000007d1  GPIODirModeSet         
+000008cb  GPIOIntClear           
+000008bf  GPIOIntEnable          
+000008a5  GPIOIntStatus          
+000005d5  GPIOIntTypeSet         
+00000401  GPIOPadConfigSet       
+0000087f  GPIOPinTypeGPIOInput   
+00000865  GPIOPinTypeGPIOOutput  
+000008d1  GPIOPinWrite           
+0000056d  IntEnable              
+00000895  IntMasterEnable        
+0000062d  PortJIntHandler        
+000008d7  ResetISR               
+00000201  SysCtlClockFreqSet     
+0000079d  SysCtlPeripheralEnable 
+00000765  SysCtlPeripheralReady  
+20000100  __STACK_END            
+00000100  __STACK_SIZE           
+20000100  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+UNDEFED   __mpu_init             
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+000007fd  _c_int00_noinit_noargs 
+000008dd  _system_pre_init       
+000008e1  abort                  
+ffffffff  binit                  
+00000000  g_pfnVectors           
+00000685  habilitarBotones       
+0000071d  habilitarLeds          
+00000849  main                   
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  g_pfnVectors           
+00000100  __STACK_SIZE           
+00000201  SysCtlClockFreqSet     
+00000401  GPIOPadConfigSet       
+0000056d  IntEnable              
+000005d5  GPIOIntTypeSet         
+0000062d  PortJIntHandler        
+00000685  habilitarBotones       
+0000071d  habilitarLeds          
+00000765  SysCtlPeripheralReady  
+0000079d  SysCtlPeripheralEnable 
+000007d1  GPIODirModeSet         
+000007fd  _c_int00_noinit_noargs 
+00000849  main                   
+00000865  GPIOPinTypeGPIOOutput  
+0000087f  GPIOPinTypeGPIOInput   
+00000895  IntMasterEnable        
+000008a5  GPIOIntStatus          
+000008b3  CPUcpsie               
+000008bf  GPIOIntEnable          
+000008cb  GPIOIntClear           
+000008d1  GPIOPinWrite           
+000008d7  ResetISR               
+000008dd  _system_pre_init       
+000008e1  C$$EXIT                
+000008e1  abort                  
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+20000100  __STACK_END            
+20000100  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[39 symbols]
